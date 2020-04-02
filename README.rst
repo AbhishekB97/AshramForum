@@ -1,7 +1,7 @@
 Introduction:
 =============
 
-Ashram Forum is a discussion board where students of IEM Ashram Campus can create and discuss various topics. You can also mention any particpant those are involved in the repsective topic in the comment. You can also receive email notifications when there is an update in the topic, when you follow the topic.
+Ashram Forum is a discussion board where students of IEM Ashram Campus can create and discuss various topics. You can also mention any particpant those are involved in the respective topic in the comment. You can also receive email notifications when there is an update in the topic, when you follow the topic.
 
 
 Modules used:
