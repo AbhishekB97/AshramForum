@@ -21,15 +21,15 @@ for dirpath, dirnames, filenames in os.walk(PROJECT_NAME):
                 dirpath[len(PROJECT_NAME) + 1:], f))
 
 setup(
-    name='django-simple-forum',
+    name='AshramForum',
     version='0.0.5',
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
     description='A Full featured forum, easy to integrate and use.',
     long_description=README,
-    url='https://github.com/MicroPyramid/django-simple-forum',
+    url='https://github.com/ShinodaII/AshramForum',
     author='Micropyramid',
-    author_email='hello@micropyramid.com',
+    author_email='abhbhat97@gmail.com',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
