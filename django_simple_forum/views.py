@@ -481,18 +481,22 @@ class TopicAdd(LoginRequiredMixin, CreateView):
         #     topic__category=topic.category, is_like=True).values_list('user', flat=True)
         # followed_users = UserTopics.objects.filter(
         #     topic__category=topic.category, is_followed=True).values_list('user', flat=True)
-        # users = UserProfile.objects.filter(user_id__in=set(all_users))
+        users = User.objects.filter()
 
-        # for user in users:
-        #     mto = [user.user.email]
-        #     c = Context({'comment': comment, "user": user.user,
-        #                  'topic_url': settings.HOST_URL + reverse('django_simple_forum:view_topic', kwargs={'slug': topic.slug}),
-        #                  "HOST_URL": settings.HOST_URL})
-        #     t = loader.get_template('emails/new_topic.html')
-        #     subject = "New Topic For The Category" + (topic.category.title)
-        #     rendered = t.render(c)
-        #     mfrom = settings.DEFAULT_FROM_EMAIL
-        #     Memail(mto, mfrom, subject, rendered)
+        for user in users:
+            if user.is_superuser:
+                #print("..........................")
+                #print("Found Superuser")
+                #print('...............')
+                mto = [user.email]
+                c = {"user": user,
+                    'topic_url': settings.HOST_URL + reverse('django_simple_forum:view_topic', kwargs={'slug': topic.slug}),
+                    "HOST_URL": settings.HOST_URL}
+                t = loader.get_template('emails/new_topic.html')
+                subject = "New Topic For The Category" + (topic.category.title)
+                rendered = t.render(c)
+                mfrom = settings.DEFAULT_FROM_EMAIL
+                Memail(mto, mfrom, subject, rendered, email_template_name=None, context=None)
 
         timeline_activity(user=self.request.user, content_object=self.request.user,
                           namespace='created topic on', event_type="topic-create")
@@ -776,7 +780,7 @@ class CommentDelete(LoginRequiredMixin, DeleteView):
 
     def post(self, request, *args, **kwargs):
         comment = self.get_object()
-        if self.request.user == comment.commented_by:
+        if self.request.user == comment.commented_by or self.request.user.is_superuser:
             comment.delete()
             return JsonResponse({'error': False, 'response': 'Successfully Deleted Your Comment'})
         else:

@@ -33,6 +33,8 @@
                   <h3 class="create_topic_heading">{{ topic.title|capfirst }}</h3>
                   {% if topic.created_by == request.user %}
                     <a href="{% url 'django_simple_forum:topic_update' topic.slug %}"> Update</a>
+                   {% endif %}
+                   {% if topic.created_by == request.user or request.user.is_superuser %}
                     <a href="{% url 'django_simple_forum:delete_topic' topic.slug %}"> delete </a>
                   {% endif %}
                   <div class="follow_votes">
@@ -180,6 +182,8 @@
                   <div class="topic_count">
                     <a href="#" data-toggle="modal" data-target="#modal_comment_{{ comment.id }}"><i class="fa fa-reply"></i><span class="reply">Edit</span></a>
                   </div>
+                  {% endif %}
+                  {% if topic.created_by == request.user or request.user.is_superuser %}
                   <div class="topic_count">
                     <a href="#" class="delete-comment" id="comment_{{ comment.id }}" data-href="{% url "django_simple_forum:comment_delete" comment.id %}"><span class="reply"><i class="fa fa-reply"></i>Delete</span></a>
                   </div>
@@ -231,14 +235,16 @@
                   </p>
                 </div>
                 <div class="topic_options">
-                  {% if comment.commented_by == request.user %}
                   <div class="topic_count">
+                  	{% if comment.commented_by == request.user %}
                     <span class="reply"><i class="fa fa-reply"></i>Edit </span>
+                    {% endif %}
                   </div>
                   <div class="topic_count">
+                  	{% if topic.created_by == request.user or request.user.is_superuser %}
                     <a href="#" id="comment_{{ comment.id }}" class="delete-comment" data-href="{% url "django_simple_forum:comment_delete" comment.id %}"><span class="reply"><i class="fa fa-reply"></i>Delete</span></a>
+                    {% endif %}
                   </div>
-                  {% endif %}
                   <div class="user_options pull-right">
                     <ul>
                       <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg-{{ comment.id }}"><i class="fa fa-reply"></i>Reply</a></li>

@@ -74,10 +74,10 @@ urlpatterns = [
         views.DashboardUserEdit.as_view(), name="edit_user"),
 
     url(r'^dashboard/topics/list/$', views.DashboardTopicList.as_view(), name="topics"),
-    url(r'^dashboard/topics/delete/(?P<slug>[-\w]+)/$', views.TopicDeleteView.as_view(), name="delete_topic"),
+    url(r'^dashboard/topics/delete/(?P<slug>[-\w]+)/$', csrf_exempt(views.TopicDeleteView.as_view()), name="delete_topic"),
     url(r'^dashboard/topic/view/(?P<slug>[-\w]+)/$', views.TopicDetail.as_view(), name="topic_detail"),
     url(r'^dashboard/topic/status/(?P<slug>[-\w]+)/$', csrf_exempt(views.TopicStatus.as_view()), name="topic_status"),
-    url(r'^dashboard/topic/edit/(?P<slug>[-\w]+)/$', views.TopicUpdateView.as_view(), name="topic_update"),
+    url(r'^dashboard/topic/edit/(?P<slug>[-\w]+)/$', csrf_exempt(views.TopicUpdateView.as_view()), name="topic_update"),
 
     url(r'^dashboard/change-password/$', views.ChangePassword.as_view(), name="change_password"),
 
