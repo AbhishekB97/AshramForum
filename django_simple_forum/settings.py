@@ -91,7 +91,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -103,7 +103,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 MAIL_SENDER = ""
-HOST_URL = ""
+HOST_URL = "127.0.0.1:8000"
 
 #DEFAULT_FROM_EMAIL = 'IEMForum@yahoo.com'
 EMAIL_HOST = 'smtp.gmail.com'

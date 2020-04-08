@@ -491,7 +491,8 @@ class TopicAdd(LoginRequiredMixin, CreateView):
                 mto = [user.email]
                 c = {"user": user,
                     'topic_url': settings.HOST_URL + reverse('django_simple_forum:view_topic', kwargs={'slug': topic.slug}),
-                    "HOST_URL": settings.HOST_URL}
+                    "host_url": settings.HOST_URL,
+                    "topic_title": topic.title}
                 t = loader.get_template('emails/new_topic.html')
                 subject = "New Topic For The Category" + (topic.category.title)
                 rendered = t.render(c)

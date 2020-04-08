@@ -3,7 +3,7 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
-      <title>Django Simple Forum</title>
+      <title>Ashram Forum</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -24,8 +24,7 @@
         </div>
         <div class="col-md-9 col-sm-9 col-xs-8 pad_lr_0 nav_right text-right">
             <div class="row no_row_margin header_right">
-               <form action="" class="search-form">
-                {% csrf_token %}
+               <form action="" class="search-form" id="searchform">
                    <div class="form-group has-feedback">
                      <label for="search" class="sr-only">Search</label>
                      <input type="text" class="form-control" name="search" id="search" placeholder="search">
@@ -361,8 +360,6 @@
            $(this).children('span').children('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
           }
       })
-
-
   </script>
     {% block extra_js %}
     {% endblock %}
