@@ -19,8 +19,11 @@
    <header>
       <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header pad_lr_0 col-md-3 col-sm-3 col-xs-4">
+        <div class="navbar-header pad_lr_0 col-md-2 col-sm-2 col-xs-3">
           <a class="navbar-brand" href="{% url "django_simple_forum:topic_list" %}">Forum</a>
+        </div>
+        <div class="navbar-header pad_lr_0 col-md-1 col-sm-1 col-xs-1">
+          <a class="navbar-brand" href="{% url "django_simple_forum:dashboard" %}">Admin</a>
         </div>
         <div class="col-md-9 col-sm-9 col-xs-8 pad_lr_0 nav_right text-right">
             <div class="row no_row_margin header_right">
@@ -78,7 +81,7 @@
               </div>
               <div class="login_options col-md-5">
                 <ul>
-                  <li><a href="{% url "django_simple_forum:facebook_login" %}" class="facebook"><i class="fa fa-facebook"></i>Connect With Facebook</a></li>
+                  <!--<li><a href="{% url "django_simple_forum:facebook_login" %}" class="facebook"><i class="fa fa-facebook"></i>Connect With Facebook</a></li>-->
                   <!--<li><a href="#" class="twitter"><i class="fa fa-twitter"></i>Connect With Twitter</a></li>
                   <li><a href="#" class="youtube"><i class="fa fa-youtube"></i>Connect With Youtube</a></li>-->
                   <li><a href="{% url "django_simple_forum:google_login" %}" class="google-plus"><i class="fa fa-google-plus"></i>Connect With Google </a></li>
