@@ -19,6 +19,8 @@ urlpatterns = [
     url(r'^topic/follow/(?P<slug>[-\w]+)/$', csrf_exempt(views.TopicFollow.as_view()), name="follow_topic"),
     url(r'^topic/votes/(?P<slug>[-\w]+)/up/$', views.TopicVoteUpView.as_view(), name="topic_vote_up"),
     url(r'^topic/votes/(?P<slug>[-\w]+)/down/$', views.TopicVoteDownView.as_view(), name="topic_vote_down"),
+    url(r'^topic/search/(?P<search>[-\w]+)/$', csrf_exempt(views.TopicSearch.as_view()), name="topic_search"),
+    url(r'^topic/search/$', csrf_exempt(views.TopicSearch.as_view()), name="topic_search"),
 
     url(r'^mentioned-users/(?P<topic_id>[-\w]+)/$', views.get_mentioned_user, name="get_mentioned_user"),
     url(r'^user/profile/(?P<user_name>[a-zA-Z0-9_.-@]+)/$', views.ProfileView.as_view(), name="view_profile"),

@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-9 col-sm-9 col-xs-8 pad_lr_0 nav_right text-right">
             <div class="row no_row_margin header_right">
-               <form action="" class="search-form" id="searchform">
+               <form action="{% url "django_simple_forum:topic_search" %}" method="GET" class="search-form" id="searchform">
                    <div class="form-group has-feedback">
                      <label for="search" class="sr-only">Search</label>
                      <input type="text" class="form-control" name="search" id="search" placeholder="search">
@@ -338,6 +338,21 @@
           }
         }, 'json');
       });
+      /*$('form#searchform').submit(function(e){
+        e.preventDefault();
+        $.post('{% url "django_simple_forum:topic_search" %}', $('form#searchform').serialize(), function(data){
+          if(data.error){
+            console.log(data.response)
+            $('div.error').remove();
+            for (var key in data.response) {
+              $('#searchform #' + key).after('<div class="error">' + data.response[key] + '</div>');
+            }
+          }
+          //else{
+          //  window.location = "{% url "django_simple_forum:topic_list" %}";
+          //}
+        }, 'json');
+      });*/
       $(function () {
         $('[data-toggle="popover"]').popover({
            html: true,

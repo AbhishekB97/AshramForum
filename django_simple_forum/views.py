@@ -572,6 +572,19 @@ class TopicList(ListView):
         queryset = Topic.objects.filter(query).order_by('-created_on')
         return queryset
 
+class TopicSearch(ListView):
+	model = Topic
+	template_name = 'forum/topic_list.html'
+	context_object_name = 'topic_list'
+
+	def get_context_data(self, **kwargs):
+		context = super(TopicSearch, self).get_context_data(**kwargs)
+		return context
+
+	def get_queryset(self):
+		queryset = Topic.objects.filter(title__icontains=self.request.GET.get('search')).order_by('-created_on')
+		return queryset
+
 class TopicView(TemplateView):
     template_name = 'forum/view_topic.html'
 
