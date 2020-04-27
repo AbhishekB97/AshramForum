@@ -66,15 +66,15 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                       <!--<li role="presentation" class="active"><a href="#Users" aria-controls="Users" role="tab" data-toggle="tab">Users</a></li>-->
-                      <li role="presentation"><a href="#Followed" aria-controls="Followed" role="tab" data-toggle="tab">Topics</a></li>
+                      <!--<li role="presentation"><a href="#Followed" aria-controls="Followed" role="tab" data-toggle="tab">Topics</a></li>
                       <li role="presentation"><a href="#Favourites" aria-controls="Favourites" role="tab" data-toggle="tab">Followed Topics</a></li>
                       <li role="presentation"><a href="#Favourites1" aria-controls="Favourites1" role="tab" data-toggle="tab">Liked Topics</a></li>
                     </ul>
-                    <!-- Tab panes -->
+                   
                     <div class="tab-content">
                       <div role="tabpanel" class="tab-pane active" id="Followed">
                         <div class="topic_container">
-                          <!-- topic_block starts here -->
+                          
                           {% if user_profile.get_topics %}
                           {% for topic in user_profile.get_topics %}
                           <div class="topic_block">
@@ -99,11 +99,11 @@
                         {% endfor %}
                         {% else %}
                         No Topics Available Now
-                          <!-- topic_block ends here -->
+                          
                         {% endif %}
                         </div>
-                      </div>
-                      <div role="tabpanel" class="tab-pane" id="Favourites">
+                      </div>-->
+                      <!--<div role="tabpanel" class="tab-pane" id="Favourites">
                         <div class="topic_container">
                           {% if user_profile.get_followed_topics %}
                           {% for topic in user_profile.get_followed_topics %}
@@ -132,8 +132,8 @@
                         {% endif %}
 
                         </div>
-                      </div>
-                      <div role="tabpanel" class="tab-pane" id="Favourites1">
+                      </div>-->
+                      <!--<div role="tabpanel" class="tab-pane" id="Favourites1">
                         <div class="topic_container">
                         {% if user_profile.get_liked_topics %}
                           {% for topic in user_profile.get_liked_topics %}
@@ -165,8 +165,8 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                {% if user_profile.get_user_suggested_topics %}
+                </div>-->
+                <!--{% if user_profile.get_user_suggested_topics %}
                 <h4 class="inner_page_heading">Suggested Topics</h4>
                 <div class="topic_container">
                   {% for topic in user_profile.get_user_suggested_topics %}
@@ -191,7 +191,7 @@
                         </div>
                         {% endfor %}
                 </div>
-                {% endif %}
+                {% endif %}-->
               </div>
             </div>
           </div>
