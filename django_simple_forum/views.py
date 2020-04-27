@@ -839,10 +839,10 @@ class TopicLike(LoginRequiredMixin, View):
 
 
 class ForumCategoryList(ListView):
-    queryset = ForumCategory.objects.order_by('-created_on')
+    queryset = ForumCategory.objects.all()
     template_name = 'forum/categories.html'
     context_object_name = "categories"
-    paginate_by = '10'
+    paginate_by = '20'
 
 class ForumTagsList(ListView):
     queryset = Tags.objects.filter()
