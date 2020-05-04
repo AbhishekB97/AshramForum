@@ -84,7 +84,7 @@ header .navbar-default {
           display: none; }
         header .navbar-default .nav_right .header_right .search-form .form-group input.form-control:-ms-input-placeholder {
           display: none; }
-      header .navbar-default .nav_right .header_right .search-form .form-group:hover, header .navbar-default .nav_right .header_right .search-form .form-group.hover {
+      header .navbar-default .nav_right .header_right .search-form .form-group:hover, .form-group:focus, header .navbar-default .nav_right .header_right .search-form .form-group.hover  {
         width: 100%;
         border-radius: 4px 25px 25px 4px; }
       header .navbar-default .nav_right .header_right .search-form .form-group span.form-control-feedback {

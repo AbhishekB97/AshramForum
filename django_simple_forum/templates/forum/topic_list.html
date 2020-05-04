@@ -18,14 +18,14 @@
                     <a href="{% url "django_simple_forum:view_topic" topic.slug %}">{{ topic.title }}</a>
                     </div>
                     <div class="topic_options">
-                     <span class="category"><a href="#" class="gaming">{{ topic.category.title }} </a></span><span class="activity">Updated on {{ topic.updated_on }}</span>
-                    <span class="reply"><a href="#"><i class="fa fa-reply"></i>Replies {{ topic.get_all_comments.count }} </a></span>
+                     <span class="category"><a href="{% url "django_simple_forum:forum_category_detail" topic.category.slug %}" class="gaming">{{ topic.category.title }} </a></span><span class="activity">Updated on {{ topic.updated_on }}</span>
+                    <span class="reply"><a href="{% url "django_simple_forum:view_topic" topic.slug %}"><i class="fa fa-reply"></i>Replies {{ topic.get_all_comments.count }} </a></span>
                     <!-- <span class="views"><a href="#"><i class="fa fa-eye"></i> Views {{ topic.no_of_views }} </a></span> -->
                     </div>
                     <div class="topic_users">
                       <ul class="users_list">
                         {% for user in topic.get_topic_users %}
-                        <li><a href="{% url "django_simple_forum:user_details" user.user.username %}" title="{{ user.user.username }}"><img src="{% if user.profile_pic %}{% else %}//d2pt99vxm3n8bc.cloudfront.net/static/dummy.jpg{% endif %}"></a></li>
+                        <li><a href="{% if request.user.is_authenticated %}{% url "django_simple_forum:user_details" user.user.username %}{% else %}#{% endif %}" title="{{ user.user.username }}"><img src="{% if user.profile_pic %}{% else %}//d2pt99vxm3n8bc.cloudfront.net/static/dummy.jpg{% endif %}"></a></li>
                         {% endfor %}
                       </ul>
                       {% if topic.created_by == request.user %}

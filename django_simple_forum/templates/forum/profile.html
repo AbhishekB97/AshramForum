@@ -37,7 +37,7 @@
                           <span class="email"><b>email : </b>{{user_profile.user.email}}</span>
                           <!--<span class="contact"><b>Contact : </b>+91 99892273555</span>-->
                         </div>
-                        <div class="categories">
+                        <!--<div class="categories">
                         {% for category in user_profile.get_user_topic_categories %}
                           <span class="category"><a href="{% url "django_simple_forum:forum_category_detail" category.slug %}" class="disclosure" style="background:{{category.color}}!important;"> {{ category.title }} </a></span>
                         {% endfor %}
@@ -50,7 +50,7 @@
                           {% endfor %}
                           </ul>
                           <br clear="all">
-                        </div>
+                        </div>-->
                         <div class="badges">
                           <ul class="badge_list">
                           {% for badge in user_profile.badges.all %}
