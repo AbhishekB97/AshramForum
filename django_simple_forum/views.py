@@ -981,6 +981,20 @@ class UserDetail(AdminMixin, TemplateView):
             created_by=self.get_object())
         return context
 
+class UserHistory(LoginRequiredMixin, ListView):
+    model = Topic
+    template_name = 'forum/topic_list.html'
+    context_object_name = 'topic_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserHistory, self).get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self):
+        print(self.request.path.split(r'/'))
+        queryset = Topic.objects.filter(status='Published',created_by__username=self.request.path.split(r'/')[2]).order_by('-created_on')
+        return queryset
+
 class TopicFollow(LoginRequiredMixin, View):
     model = Topic
     slug_field = 'slug'

@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^tags/(?P<slug>[-\w]+)/$', views.ForumTagsView.as_view(), name="forum_tags_detail"),
 
     url(r'^user/(?P<user_name>[a-zA-Z0-9_-]+.*?)/$', views.UserDetailView.as_view(), name="user_details"),
+    url(r'^history/(?P<user_name>[a-zA-Z0-9_-]+.*?)/$', views.UserHistory.as_view(), name="user_history"),
 
     url(r'^comment/add/$', views.CommentAdd.as_view(), name="new_comment"),
     url(r'^comment/votes/(?P<pk>[-\w]+)/up/$', views.CommentVoteUpView.as_view(), name="comment_vote_up"),

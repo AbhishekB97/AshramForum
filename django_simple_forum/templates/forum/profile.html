@@ -64,7 +64,11 @@
                   </div>
                   <div class="user_profile_tabs">
                     <!-- Nav tabs -->
+                    {% if request.user.is_authenticated %}
                     <ul class="nav nav-tabs" role="tablist">
+                    	<li role="presentation"><a href="{% url 'django_simple_forum:user_history' user_profile.user.username %}" aria-controls="History">Post History</a></li>
+                    </ul>
+                    {% endif %}	
                       <!--<li role="presentation" class="active"><a href="#Users" aria-controls="Users" role="tab" data-toggle="tab">Users</a></li>-->
                       <!--<li role="presentation"><a href="#Followed" aria-controls="Followed" role="tab" data-toggle="tab">Topics</a></li>
                       <li role="presentation"><a href="#Favourites" aria-controls="Favourites" role="tab" data-toggle="tab">Followed Topics</a></li>

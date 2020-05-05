@@ -55,7 +55,7 @@
                   <div class="other_views">
                     <ul class="users_list">
                       {% for user in topic.get_topic_users %}
-                        <li><a href="#" title="{{ user.user.username }}"><img src="{% if user.profile_pic %}{% thumbnail user.profile_pic "100x100" upscale=True padding=True %}{% else %}//d2pt99vxm3n8bc.cloudfront.net/static/dummy.jpg{% endif %}"></a></li>
+                        <li><a href="{% if request.user.is_authenticated %}{% url "django_simple_forum:user_details" user.user.username %}{% else %}#{% endif %}" title="{{ user.user.username }}"><img src="{% if user.profile_pic %}{% thumbnail user.profile_pic "100x100" upscale=True padding=True %}{% else %}//d2pt99vxm3n8bc.cloudfront.net/static/dummy.jpg{% endif %}"></a></li>
                       {% endfor %}
                       <div class="clearfix"></div>
                     </ul>
