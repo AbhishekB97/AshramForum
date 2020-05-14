@@ -1,10 +1,10 @@
 """
-WSGI config for test_django_simple_forum project.
+WSGI config for django_simple_forum project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
+https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
 import os
