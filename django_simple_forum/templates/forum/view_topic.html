@@ -183,7 +183,7 @@
                     <a href="#" data-toggle="modal" data-target="#modal_comment_{{ comment.id }}"><i class="fa fa-reply"></i><span class="reply">Edit</span></a>
                   </div>
                   {% endif %}
-                  {% if topic.created_by == request.user or request.user.is_superuser %}
+                  {% if comment.commented_by == request.user or request.user.is_superuser %}
                   <div class="topic_count">
                     <a href="#" class="delete-comment" id="comment_{{ comment.id }}" data-href="{% url "django_simple_forum:comment_delete" comment.id %}"><span class="reply"><i class="fa fa-reply"></i>Delete</span></a>
                   </div>
@@ -241,7 +241,7 @@
                     {% endif %}
                   </div>
                   <div class="topic_count">
-                  	{% if topic.created_by == request.user or request.user.is_superuser %}
+                  	{% if comment.commented_by == request.user or request.user.is_superuser %}
                     <a href="#" id="comment_{{ comment.id }}" class="delete-comment" data-href="{% url "django_simple_forum:comment_delete" comment.id %}"><span class="reply"><i class="fa fa-reply"></i>Delete</span></a>
                     {% endif %}
                   </div>
