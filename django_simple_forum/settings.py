@@ -108,8 +108,8 @@ HOST_URL = "127.0.0.1:8000"
 
 #DEFAULT_FROM_EMAIL = 'IEMForum@yahoo.com'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'AshramForum@gmail.com'
-EMAIL_HOST_PASSWORD = 'forumadmin'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
